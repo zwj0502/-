@@ -7,7 +7,7 @@ $('#link_login').on('click', function () {
     $('.login-box').show()
 })
 const form = layui.form
-const baseUrl = "http://www.liulongbin.top:3007";
+
 const layer = layui.layer
 form.verify({
     // 自定义一个叫 pwd 的校验规则
@@ -28,7 +28,7 @@ $('#form_reg').on('submit', function (e) {
     const data = $(this).serialize()
     $.ajax({
         type: 'POST',
-        url: baseUrl + '/api/reguser',
+        url: '/api/reguser',
         data,
         success: res => {
             const { message, status } = res
@@ -43,7 +43,7 @@ $('#form_login').on('submit', function (e) {
     const data = $(this).serialize()
     $.ajax({
         type: 'POST',
-        url: baseUrl + '/api/login',
+        url: '/api/login',
         data,
         success: res => {
             const { message, status, token } = res
